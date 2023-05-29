@@ -295,6 +295,11 @@ namespace Assets.Scripts.UI
             });
         }
 
+        public bool getRBtnClicked()
+        {
+            return _rBtnIsClicked;
+        }
+
         public bool getCBtnClicked()
         {
             return _cBtnIsClicked;
