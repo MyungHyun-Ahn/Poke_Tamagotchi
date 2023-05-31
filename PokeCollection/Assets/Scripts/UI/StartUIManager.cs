@@ -8,21 +8,21 @@ using Assets.Scripts.UI;
 public class StartUIManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _inStartPrefab;
+    private GameObject      _inStartPrefab;
 
     [SerializeField]
-    private GameObject _inLoginPrefab;
+    private GameObject      _inLoginPrefab;
 
     [SerializeField]
-    private GameObject _inRegisterPrefab;
+    private GameObject      _inRegisterPrefab;
 
-    private GameStartUI _gameStartUI;
-    private LoginUI _loginUI;
-    private RegisterUI _registerUI;
+    private GameStartUI     _gameStartUI;
+    private LoginUI         _loginUI;
+    private RegisterUI      _registerUI;
 
-    private bool _isStartShow = false;
-    private bool _isLoginShow = false;
-    private bool _isRegisterShow = false;
+    private bool            _isStartShow = false;
+    private bool            _isLoginShow = false;
+    private bool            _isRegisterShow = false;
 
 
     void Start()
@@ -31,6 +31,7 @@ public class StartUIManager : MonoBehaviour
         _loginUI = new LoginUI(_inLoginPrefab);
         _registerUI = new RegisterUI(_inRegisterPrefab);
 
+        // 초기 게임 시작 UI 띄우기
         _isStartShow = true;
         _gameStartUI.showInit(Instantiate(_inStartPrefab));
     }
@@ -46,7 +47,6 @@ public class StartUIManager : MonoBehaviour
         if (_loginUI.getRBtnIsClicked() && !_isRegisterShow)
         {
             show(_loginUI, _registerUI, out _isLoginShow, out _isRegisterShow);
-
         }
 
         if (_registerUI.getCBtnClicked() && !_isLoginShow)
